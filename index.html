@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Something For You ❤️</title>
 
     <style>
@@ -14,37 +13,138 @@
         body {
             margin: 0;
             min-height: 100vh;
-            font-family: "Segoe UI", sans-serif;
-            background: linear-gradient(135deg, #ffd6e7, #ffeef5, #ffd1e3);
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
-            color: #6b2145;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ffd6e7, #fff0f6);
+            text-align: center;
+            color: #7a2348;
         }
 
-        .container {
+        .card {
             width: 90%;
-            max-width: 430px;
+            max-width: 420px;
             padding: 35px 25px;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.78);
+            background: white;
             border-radius: 30px;
-            box-shadow: 0 15px 40px rgba(154, 48, 91, 0.18);
-            backdrop-filter: blur(10px);
-            position: relative;
-            z-index: 5;
+            box-shadow: 0 12px 35px rgba(150, 40, 80, 0.18);
         }
 
         .heart {
-            font-size: 55px;
-            animation: heartbeat 1.4s infinite;
-            margin-bottom: 10px;
+            font-size: 60px;
         }
 
-        @keyframes heartbeat {
-            0%, 100% {
-                transform: scale(1);
-            }
+        h1 {
+            color: #d6336c;
+            font-size: 30px;
+            margin: 15px 0;
+        }
 
-           160
+        .love {
+            font-size: 22px;
+            font-weight: bold;
+            color: #b4235a;
+            margin: 20px 0;
+        }
+
+        .shayari {
+            font-size: 17px;
+            line-height: 1.7;
+            margin: 20px 0;
+        }
+
+        .question {
+            font-size: 24px;
+            font-weight: bold;
+            color: #c2255c;
+            margin: 25px 0;
+        }
+
+        button {
+            border: none;
+            padding: 13px 28px;
+            margin: 8px;
+            border-radius: 30px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #yes {
+            background: #e64980;
+            color: white;
+        }
+
+        #no {
+            background: #ffe3ec;
+            color: #c2255c;
+        }
+
+        #message {
+            display: none;
+            margin-top: 25px;
+            font-size: 20px;
+            line-height: 1.6;
+            color: #d6336c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+
+        <div class="heart">❤️</div>
+
+        <h1>Hey You... 🥺</h1>
+
+        <div class="love">
+            I Love You So Much ❤️
+        </div>
+
+        <div class="shayari">
+            Tere saath har pal khaas lagta hai,<br>
+            Teri ek smile pe dil paas lagta hai. ❤️
+            <br><br>
+            Tum ho toh sab kuch beautiful lagta hai,<br>
+            Aur dil ko bas tumhara saath achha lagta hai. 🫶🏻
+        </div>
+
+        <div class="question">
+            Will You Be Mine? 👉🏻👈🏻
+        </div>
+
+        <button id="yes" onclick="yesClicked()">
+            YES ❤️
+        </button>
+
+        <button id="no" onclick="noClicked()">
+            NO 🙈
+        </button>
+
+        <div id="message">
+            YAYYYY! 🥹❤️
+            <br><br>
+            I knew it! 💕
+            <br>
+            You just made me the happiest. 🫶🏻
+            <br><br>
+            Forever starts here... ✨
+        </div>
+
+    </div>
+
+    <script>
+        function yesClicked() {
+            document.getElementById("message").style.display = "block";
+        }
+
+        function noClicked() {
+            alert("Are you sure? 🥺❤️");
+        }
+    </script>
+
+</body>
+</html>

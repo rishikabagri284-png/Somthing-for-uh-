@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Something For You ❤️</title>
 
     <style>
@@ -13,26 +14,40 @@
         body {
             margin: 0;
             min-height: 100vh;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(135deg, #ffd6e7, #fff0f6, #ffc9df);
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #ffd6e7, #fff0f6);
             text-align: center;
-            color: #7a2348;
+            overflow: hidden;
+            color: #702343;
         }
 
         .card {
             width: 90%;
-            max-width: 420px;
+            max-width: 430px;
             padding: 35px 25px;
-            background: white;
-            border-radius: 30px;
-            box-shadow: 0 12px 35px rgba(150, 40, 80, 0.18);
+            background: rgba(255, 255, 255, 0.90);
+            border-radius: 32px;
+            box-shadow: 0 15px 40px rgba(150, 40, 80, 0.20);
+            position: relative;
+            z-index: 5;
         }
 
         .heart {
-            font-size: 60px;
+            font-size: 62px;
+            animation: beat 1.3s infinite;
+        }
+
+        @keyframes beat {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.18);
+            }
         }
 
         h1 {
@@ -42,20 +57,21 @@
         }
 
         .love {
-            font-size: 22px;
+            font-size: 23px;
             font-weight: bold;
             color: #b4235a;
             margin: 20px 0;
         }
 
-        .shayari {
+        .message {
             font-size: 17px;
-            line-height: 1.7;
-            margin: 20px 0;
+            line-height: 1.8;
+            margin: 22px 5px;
+            color: #71304d;
         }
 
         .question {
-            font-size: 24px;
+            font-size: 25px;
             font-weight: bold;
             color: #c2255c;
             margin: 25px 0;
@@ -63,7 +79,7 @@
 
         button {
             border: none;
-            padding: 13px 28px;
+            padding: 14px 28px;
             margin: 8px;
             border-radius: 30px;
             font-size: 17px;
@@ -74,6 +90,7 @@
         #yes {
             background: #e64980;
             color: white;
+            box-shadow: 0 6px 15px rgba(230, 73, 128, 0.30);
         }
 
         #no {
@@ -84,10 +101,58 @@
         #message {
             display: none;
             margin-top: 25px;
-            font-size: 20px;
+            color: #c2255c;
+        }
+
+        #message h2 {
+            font-size: 28px;
+            line-height: 1.4;
+            margin: 10px 0;
+        }
+
+        #message p {
+            font-size: 17px;
             line-height: 1.6;
-            color: #d6336c;
-            font-weight: bold;
+        }
+
+        .final-hearts {
+            font-size: 32px;
+            margin-top: 15px;
+        }
+
+        .celebration {
+            position: fixed;
+            top: -60px;
+            font-size: 30px;
+            z-index: 20;
+            pointer-events: none;
+            animation: fall 4s linear forwards;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-60px) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .glow {
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.08);
+            }
         }
     </style>
 </head>
@@ -104,12 +169,22 @@
             I Love You So Much ❤️
         </div>
 
-        <div class="shayari">
-            Tere saath har pal khaas lagta hai,<br>
-            Teri ek smile pe dil paas lagta hai. ❤️
+        <div class="message">
+
+            I don't know exactly kab aap itne special ban gaye... 🫣❤️
             <br><br>
-            Tum ho toh sab kuch beautiful lagta hai,<br>
-            Aur dil ko bas tumhara saath achha lagta hai. 🫶🏻
+
+            But somewhere between all our little moments,
+            aap mere liye sirf ek person nahi,
+            meri favourite feeling ban gaye.
+            <br><br>
+
+            I don't need anything perfect.
+            <br>
+            Bas apka saath, apki smile,
+            aur life ke har chhote-bade moment mein
+            aap mere saath ho — mujhe itna hi chahiye. 🫶🏻
+
         </div>
 
         <div class="question">
@@ -125,25 +200,87 @@
         </button>
 
         <div id="message">
-            YAYYYY! 🥹❤️
-            <br><br>
-            I knew it! 💕
-            <br>
-            You just made me the happiest. 🫶🏻
-            <br><br>
-            Forever starts here... ✨
+
+            <div class="glow">
+                💐💗🌸💖🌷
+            </div>
+
+            <h2>
+                Ab aap mere hue,<br>
+                Sir Ji 🫣💗
+            </h2>
+
+            <p>
+                And yes... I'm keeping you. 🥹❤️
+            </p>
+
+            <div class="final-hearts">
+                💕 🌹 💕 🌸 💕
+            </div>
+
         </div>
 
     </div>
 
     <script>
+
         function yesClicked() {
+
             document.getElementById("message").style.display = "block";
+
+            document.getElementById("yes").style.display = "none";
+            document.getElementById("no").style.display = "none";
+
+            createCelebration();
         }
 
         function noClicked() {
-            alert("Are you sure? 🥺❤️");
+
+            alert("Itna easily NO allowed nahi hai 🥺❤️");
+
         }
+
+        function createCelebration() {
+
+            const items = [
+                "❤️",
+                "💕",
+                "💗",
+                "💖",
+                "💘",
+                "🌸",
+                "🌹",
+                "🌷",
+                "💐",
+                "✨"
+            ];
+
+            for (let i = 0; i < 60; i++) {
+
+                const item = document.createElement("div");
+
+                item.className = "celebration";
+
+                item.innerHTML =
+                    items[Math.floor(Math.random() * items.length)];
+
+                item.style.left =
+                    Math.random() * 100 + "vw";
+
+                item.style.animationDuration =
+                    (2 + Math.random() * 3) + "s";
+
+                item.style.animationDelay =
+                    Math.random() * 1.5 + "s";
+
+                document.body.appendChild(item);
+
+                setTimeout(function() {
+                    item.remove();
+                }, 5500);
+            }
+        }
+
     </script>
 
 </body>
